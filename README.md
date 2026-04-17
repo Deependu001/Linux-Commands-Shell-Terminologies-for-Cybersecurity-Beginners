@@ -1,9 +1,9 @@
-# Shell Scripting for Cybersecurity Beginners (Linux)
+# 🐧 Shell Scripting for Cybersecurity Beginners (Linux)
 
 ## 📌 Overview
-Shell scripting is used to automate Linux commands using Bash. It is widely used in cybersecurity for log analysis, system monitoring, automation, scanning, and incident response.
+Shell scripting (Bash) is used to automate Linux tasks like system monitoring, log analysis, scanning, and cybersecurity operations.
 
-# ⚙️ Basic Shell Script Structure
+# ⚙️ Basic Script
 #!/bin/bash
 echo "Hello Cybersecurity World"
 
@@ -38,14 +38,20 @@ else
 echo "10 or less"
 fi
 
-# 📌 Loops
-FOR LOOP:
+# 📌 FOR LOOP
 for i in 1 2 3 4 5
 do
 echo "Iteration $i"
 done
 
-WHILE LOOP:
+Output:
+Iteration 1
+Iteration 2
+Iteration 3
+Iteration 4
+Iteration 5
+
+# 📌 WHILE LOOP
 i=1
 while [ $i -le 5 ]
 do
@@ -53,13 +59,16 @@ echo "Count $i"
 i=$((i+1))
 done
 
-# 📌 Functions
+# 📌 FUNCTION
 greet() {
 echo "Hello $1"
 }
 greet "Cybersecurity"
 
-# 📌 File Check
+Output:
+Hello Cybersecurity
+
+# 📌 FILE CHECK
 file="test.txt"
 if [ -f $file ]
 then
@@ -68,59 +77,63 @@ else
 echo "File not found"
 fi
 
-# 📌 Directory Listing
+# 📌 DIRECTORY CHECK
 read dir
 if [ -d "$dir" ]
 then
-ls -la $dir
+ls -la "$dir"
 else
 echo "Directory not found"
 fi
 
-# 📌 Log Analyzer
+# 📌 LOG ANALYZER
 echo "Enter keyword:"
 read key
 grep "$key" access.log
 
-# 📌 Network Info
+# 📌 NETWORK INFO
 ip a
 
-# 📌 Port Checking
+# 📌 PORT CHECK
 ss -tulnp
 
-# 📌 Backup Script
+# 📌 BACKUP SCRIPT
 cp -r /home/user/documents /home/user/backup
-echo "Backup done"
+echo "Backup completed"
 
-# 📌 Process Monitoring
+# 📌 PROCESS MONITOR
 top -b -n 1 | head -n 10
 
-# 📌 Arguments
-echo "First: $1"
-echo "Second: $2"
+# 📌 ARGUMENTS
+echo "First argument: $1"
+echo "Second argument: $2"
 
 Run:
 ./script.sh hacker kali
 
-# 📌 Exit Status
+Output:
+First argument: hacker
+Second argument: kali
+
+# 📌 EXIT STATUS
 ls /root
 echo $?
 
-# 🔐 Cybersecurity Use Cases
+# 🔐 CYBERSECURITY USE CASES
 Log monitoring
-File integrity checks
+File integrity checking
 Network scanning automation
 User tracking
 Incident response automation
 
-# 🚀 Mini Automation Script
+# 🚀 MINI AUTOMATION SCRIPT
 echo "System Scan Started"
 who
 ss -tulnp
 df -h
 echo "Scan Complete"
 
-# 🧠 Final Notes
-Bash scripting is essential in cybersecurity
-Use grep, awk, sed, pipes for advanced tasks
-Practice daily for Linux + CTF skills
+# 🧠 FINAL NOTES
+Bash scripting is essential for cybersecurity automation
+Use grep awk sed pipes for advanced tasks
+Practice daily for Linux and CTF skills
