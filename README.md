@@ -112,3 +112,7 @@ grep "error" /var/log/syslog
 
 # Hash verification
 sha256sum suspicious_file
+```
+
+
+## ✨ This repository is continuously evolving as I learn and explore more advanced Metasploit techniques.
